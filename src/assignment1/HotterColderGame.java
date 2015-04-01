@@ -38,9 +38,9 @@ public class HotterColderGame {
 		BufferedReader bufRead = new BufferedReader(istream);
 
 		System.out.println("Welcome to the hotter/colder game!");
-
-		while (game.again) {
-			try {
+		
+		try {
+			while (game.again) {
 				System.out.println("How many rows are in the grid?");
 				game.numRow = Integer.parseInt(bufRead.readLine());
 				// why do I have access to private vars here
@@ -106,7 +106,10 @@ public class HotterColderGame {
 					}
 					prevDist = newDist;
 				}
-
+				
+				// create just one Scanner so no need to close it
+				//in.close();	// close Scanner linked to System.in will raise an IOException
+				
 				System.out.println("YOU FOUND IT!");
 
 				System.out.println("Would you like to play again?");
@@ -114,14 +117,13 @@ public class HotterColderGame {
 				if (!(str.equals("Y") || str.equals("y"))) {
 					game.again = false;
 				}
-
 			}
-			catch (IOException err) {
-				System.out.println("Error reading line");
-			}
-			catch (NumberFormatException err) {
-				System.out.println("Error Converting Number");
-			}
+		}
+		catch (IOException err) {
+			System.out.println("Error reading line");
+		}
+		catch (NumberFormatException err) {
+			System.out.println("Error Converting Number");
 		}
 
 
