@@ -15,4 +15,6 @@ public abstract class Coordinate {
 		return value2;
 	}
 	
+	public abstract double getInterceptOfLine(Coordinate c);
+	
 }

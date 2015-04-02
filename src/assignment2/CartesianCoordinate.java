@@ -18,5 +18,15 @@ public class CartesianCoordinate extends Coordinate {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	public CartesianCoordinate(PolarCoordinate pc) {
+		super(pc.getValue1() * Math.cos(pc.getValue2()), pc.getValue1() * Math.sin(pc.getValue2()));
+	}
+
+	@Override
+	public double getInterceptOfLine(Coordinate c) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }
