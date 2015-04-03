@@ -5,62 +5,42 @@ import java.util.Scanner;
 
 
 public class HotterColderGame {
+	// data
 	private int numRow;
 	private int numCol;
 	private Cell dest;
 	//private Cell dest = new Cell((int)(1 + Math.random() * numRow), (int)(1 + Math.random() * numCol));
 	private boolean again = true;
-
-	private double calcDist(Cell cell) {
-		//System.out.println(cell.row);
-		//System.out.println(cell.col);
-
-		return Math.pow((Math.pow(cell.row - dest.row, 2) + Math.pow(cell.col - dest.col, 2)), 1.0/2);
-	}
-
-	private class Cell {	// public or private?
-		private int row;
-		private int col;
-
-		private Cell(int x, int y) {	// public or private?
-			row = x;
-			col = y;
-		}
-	}
-
-	//public HotterColderGame() {
-
-
-	public static void main(String[] args) {
-		HotterColderGame game = new HotterColderGame();
-
+	
+	// constructor
+	public HotterColderGame() {
 		InputStreamReader istream = new InputStreamReader(System.in);
 		BufferedReader bufRead = new BufferedReader(istream);
 
 		System.out.println("Welcome to the hotter/colder game!");
 		
 		try {
-			while (game.again) {
+			while (again) {
 				System.out.println("How many rows are in the grid?");
-				game.numRow = Integer.parseInt(bufRead.readLine());
+				numRow = Integer.parseInt(bufRead.readLine());
 				// why do I have access to private vars here
 
 				System.out.println("How many columns are in the grid?");
-				game.numCol = Integer.parseInt(bufRead.readLine());
+				numCol = Integer.parseInt(bufRead.readLine());
 				
-				game.dest = game.new Cell((int)(1 + Math.random() * game.numRow), (int)(1 + Math.random() * game.numCol));
+				dest = new Cell((int)(1 + Math.random() * numRow), (int)(1 + Math.random() * numCol));
 					// but not here;
 
 				System.out.println("Do you have anything else to tell me?");
 				if (bufRead.readLine().equals("A")) {
 
-					System.out.println("Ahh, you're an administrator. The random location is " + game.dest.row + ", " + game.dest.col);
+					System.out.println("Ahh, you're an administrator. The random location is " + dest.row + ", " + dest.col);
 				}
 
 
 				double prevDist = -1;
 				double newDist = -1;
-				Cell cell = game.new Cell(0, 0);
+				Cell cell = new Cell(0, 0);
 				Scanner in = new Scanner(System.in);
 
 				System.out.println("What is your first guess?");
@@ -71,7 +51,7 @@ public class HotterColderGame {
 				//System.out.println(cell.row);
 				//System.out.println(cell.col);
 
-				newDist = game.calcDist(cell);
+				newDist = calcDist(cell);
 				System.out.println("Distance = " + newDist);
 				prevDist = newDist;
 
@@ -86,7 +66,7 @@ public class HotterColderGame {
 					//System.out.println(cell.row);
 					//System.out.println(cell.col);
 
-					newDist = game.calcDist(cell);
+					newDist = calcDist(cell);
 					System.out.println("Distance = " + newDist);
 					if (newDist == 0) {
 						break;
@@ -115,7 +95,7 @@ public class HotterColderGame {
 				System.out.println("Would you like to play again?");
 				String str = bufRead.readLine();
 				if (!(str.equals("Y") || str.equals("y"))) {
-					game.again = false;
+					again = false;
 				}
 			}
 		}
@@ -125,8 +105,30 @@ public class HotterColderGame {
 		catch (NumberFormatException err) {
 			System.out.println("Error Converting Number");
 		}
+	}
+	
+	// helper methods and inner classes
+	private double calcDist(Cell cell) {
+		//System.out.println(cell.row);
+		//System.out.println(cell.col);
 
+		return Math.pow((Math.pow(cell.row - dest.row, 2) + Math.pow(cell.col - dest.col, 2)), 1.0/2);
+	}
 
-
+	private class Cell {	// public or private?
+		// data
+		private int row;
+		private int col;
+		
+		// constructor
+		private Cell(int x, int y) {	// public or private?
+			row = x;
+			col = y;
+		}
+	}
+	
+	// main
+	public static void main(String[] args) {
+		HotterColderGame game = new HotterColderGame();
 	}
 }
