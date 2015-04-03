@@ -7,7 +7,7 @@ public class PolarCoordinate extends Coordinate {
 		// TODO Auto-generated constructor stub
 		// val1 - r
 		// val2 - theta in radians [0, 2*pi)
-		// to do - convert input inside range
+		// to do - normalize input to become within the range
 		
 	}
 
