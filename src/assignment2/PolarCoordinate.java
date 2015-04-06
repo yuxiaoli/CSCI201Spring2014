@@ -5,10 +5,16 @@ public class PolarCoordinate extends Coordinate {
 	public PolarCoordinate(double val1, double val2) {
 		super(val1, val2);
 		// TODO Auto-generated constructor stub
+		
+		// debug msg
+		System.out.println("raw val1 = " + getValue1() + " val2 = " + getValue2());
+		
 		// val1 - r
 		// val2 - theta in radians [0, 2*pi)
 		// to do - normalize input to become within the range
 		
+		// debug msg
+		System.out.println("normalized val1 = " + getValue1() + " val2 = " + getValue2());
 	}
 
 	@Override
@@ -16,14 +22,21 @@ public class PolarCoordinate extends Coordinate {
 		// TODO Auto-generated method stub
 		// to do - check the coordinate passed in c is polar
 		
+		CartesianCoordinate coord1 = new CartesianCoordinate(this);
+		CartesianCoordinate coord2 = new CartesianCoordinate((PolarCoordinate) c);
 		
-		return c.getDistance(this);
+		return coord1.getDistance(coord2);
 	}
 
 	@Override
 	public double getSlopeOfLine(Coordinate c) {
 		// TODO Auto-generated method stub
-		return c.getSlopeOfLine(this);
+		// assume the coordinate passed in c is polar
+		
+		CartesianCoordinate coord1 = new CartesianCoordinate(this);
+		CartesianCoordinate coord2 = new CartesianCoordinate((PolarCoordinate) c);
+		
+		return coord1.getSlopeOfLine(coord2);
 	}
 	
 	public PolarCoordinate(CartesianCoordinate cc) {
@@ -36,7 +49,12 @@ public class PolarCoordinate extends Coordinate {
 	@Override
 	public double getInterceptOfLine(Coordinate c) {
 		// TODO Auto-generated method stub
-		return 0;
+		// assume the coordinate passed in c is polar
+		
+		CartesianCoordinate coord1 = new CartesianCoordinate(this);
+		CartesianCoordinate coord2 = new CartesianCoordinate((PolarCoordinate) c);
+		
+		return coord1.getInterceptOfLine(coord2);
 	}
 
 }

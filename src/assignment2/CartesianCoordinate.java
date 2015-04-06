@@ -10,13 +10,15 @@ public class CartesianCoordinate extends Coordinate {
 	@Override
 	public double getDistance(Coordinate c) {
 		// TODO Auto-generated method stub
-		return 0;
+		// to do - check the coordinate passed in c is Cartesian
+		return Math.pow((Math.pow(c.getValue1() - getValue1(), 2) + Math.pow(c.getValue2() - getValue2(), 2)), 1.0/2);
 	}
 
 	@Override
 	public double getSlopeOfLine(Coordinate c) {
 		// TODO Auto-generated method stub
-		return 0;
+		// assume the coordinate passed in c is Cartesian
+		return (c.getValue2() - getValue2()) / (c.getValue1() - getValue1());
 	}
 	
 	public CartesianCoordinate(PolarCoordinate pc) {
@@ -26,7 +28,8 @@ public class CartesianCoordinate extends Coordinate {
 	@Override
 	public double getInterceptOfLine(Coordinate c) {
 		// TODO Auto-generated method stub
-		return 0;
+		// assume check the coordinate passed in c is Cartesian
+		return (c.getValue1() * getValue2() - getValue1() * c.getValue2()) / (c.getValue1() - getValue1());
 	}
 
 }
