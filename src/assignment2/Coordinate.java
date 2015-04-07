@@ -1,8 +1,11 @@
 package assignment2;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 public abstract class Coordinate {
 	private double value1, value2;
@@ -225,6 +228,20 @@ public abstract class Coordinate {
 					String inputFilename = bufRead.readLine();
 					System.out.print("Enter the output filename: ");
 					String outputFilename = bufRead.readLine();
+					
+					FileReader fr = new FileReader(inputFilename);
+					BufferedReader br = new BufferedReader(fr);
+					FileWriter fw = new FileWriter(outputFilename);
+					PrintWriter pw = new PrintWriter(fw);
+					
+					String coordType = br.readLine();
+					pw.print(coordType);
+					
+					pw.flush();
+					pw.close();
+					fw.close();
+					br.close();
+					fr.close();
 					
 					System.out.println("File was parsed and output generated.");
 					//break;
