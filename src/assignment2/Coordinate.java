@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 public abstract class Coordinate {
 	private double value1, value2;
@@ -231,11 +232,34 @@ public abstract class Coordinate {
 					
 					FileReader fr = new FileReader(inputFilename);
 					BufferedReader br = new BufferedReader(fr);
+					
 					FileWriter fw = new FileWriter(outputFilename);
 					PrintWriter pw = new PrintWriter(fw);
 					
-					String coordType = br.readLine();
-					pw.print(coordType);
+					while (true) {
+						String line = br.readLine();
+						String delims = "[, ]+";
+						String[] tokens = line.split(delims);
+						
+						if (tokens.length == 0) {
+							pw.print("invalid input");
+							continue;
+						}
+						else if (tokens[0].equals("Cartisian")) {
+							
+						}
+						else if (tokens[0].equals("Polar")) {
+							if (tokens.length != 2) {
+								pw.print("invalid input");
+								continue;
+							}
+							
+						}
+						else {
+							pw.print("invalid input");
+						}
+						
+					}
 					
 					pw.flush();
 					pw.close();
