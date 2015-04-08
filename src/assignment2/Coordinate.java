@@ -1,6 +1,7 @@
 package assignment2;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -27,6 +28,16 @@ public abstract class Coordinate {
 	}
 	
 	public abstract double getInterceptOfLine(Coordinate c);
+	
+	public void generateFine(String inputFilename, String outputFilename) throws Exception {
+		try {
+			
+		} catch (FileNotFoundException fnfe) {
+			throw new Exception(fnfe.getMessage());
+		} catch (IOException ioe) {
+			throw new Exception(ioe.getMessage());
+		}
+	}
 	
 	public static void main(String[] args) {
 		InputStreamReader istream = new InputStreamReader(System.in);
