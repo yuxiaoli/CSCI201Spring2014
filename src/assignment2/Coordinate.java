@@ -29,15 +29,15 @@ public abstract class Coordinate {
 	
 	public abstract double getInterceptOfLine(Coordinate c);
 	
-	public void generateFine(String inputFilename, String outputFilename) throws Exception {
-		try {
-			
-		} catch (FileNotFoundException fnfe) {
-			throw new Exception(fnfe.getMessage());
-		} catch (IOException ioe) {
-			throw new Exception(ioe.getMessage());
-		}
-	}
+//	public void generateFine(String inputFilename, String outputFilename) throws Exception {
+//		try {
+//			
+//		} catch (FileNotFoundException fnfe) {
+//			throw new Exception(fnfe.getMessage());
+//		} catch (IOException ioe) {
+//			throw new Exception(ioe.getMessage());
+//		}
+//	}
 	
 	public static void main(String[] args) {
 		InputStreamReader istream = new InputStreamReader(System.in);
@@ -237,16 +237,19 @@ public abstract class Coordinate {
 				else if (temp.equals("file")) {
 					System.out.print("Enter the input filename: ");
 					String inputFilename = bufRead.readLine();
+					System.out.println(inputFilename);
 					System.out.print("Enter the output filename: ");
 					String outputFilename = bufRead.readLine();
+					System.out.println(outputFilename);
 					
 					FileReader fr = new FileReader(inputFilename);
 					BufferedReader br = new BufferedReader(fr);
-					
+					System.out.println("0");
 					FileWriter fw = new FileWriter(outputFilename);
 					PrintWriter pw = new PrintWriter(fw);
-					
+					System.out.println("1");
 					String line = br.readLine();
+					System.out.println("here");
 					while (line != null) {
 						String delims = "[, ]+";
 						String[] tokens = line.split(delims);
