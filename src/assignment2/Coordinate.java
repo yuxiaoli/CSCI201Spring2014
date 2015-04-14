@@ -244,12 +244,10 @@ public abstract class Coordinate {
 					
 					FileReader fr = new FileReader(inputFilename);
 					BufferedReader br = new BufferedReader(fr);
-					System.out.println("0");
 					FileWriter fw = new FileWriter(outputFilename);
 					PrintWriter pw = new PrintWriter(fw);
-					System.out.println("1");
+					
 					String line = br.readLine();
-					System.out.println("here");
 					while (line != null) {
 						String delims = "[, ]+";
 						String[] tokens = line.split(delims);
@@ -293,7 +291,7 @@ public abstract class Coordinate {
 							
 							pw.print("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
 							
-							pw.print("---");
+							pw.println("---");
 						}
 						else if (tokens[0].equals("Polar")) {
 							if (tokens.length < 2) {
@@ -336,7 +334,7 @@ public abstract class Coordinate {
 								
 								pw.print("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
 								
-								pw.print("---");
+								pw.println("---");
 							}
 							
 							else if (tokens[1].equals("Radians")) {
@@ -373,7 +371,7 @@ public abstract class Coordinate {
 								
 								pw.print("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
 								
-								pw.print("---");
+								pw.println("---");
 							}
 							
 							else {
@@ -411,6 +409,7 @@ public abstract class Coordinate {
 		}
 		catch (IOException err) {
 			System.out.println("Error reading line");
+			System.out.println(err.getMessage());
 		}
 		catch (Exception e) {
 			System.out.println("Generic exception caught");
