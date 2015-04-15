@@ -47,24 +47,26 @@ public abstract class Coordinate {
 		
 		try {
 			while (true) {
-				
+				System.out.println();
 				System.out.println("[polar] Ploar Coordinates (r, theta)");
 				System.out.println("[cartesian] Cartesian Coordinates (x, y)");
 				System.out.println("[file] File Input");
 				System.out.println("[exit] Exit program");
-				
+				System.out.println();
 				System.out.print("What type of coordinates?");
 				
 				String temp = bufRead.readLine();
 				if (temp.equals("polar")) {
 					while (true) {
+						System.out.println();
 						System.out.println("[degrees] Degrees");
 						System.out.println("[radians] Radians");
-						
+						System.out.println();
 						System.out.print("What type of angle?");
 						
 						temp = bufRead.readLine();
 						if (temp.equals("degrees")) {
+							System.out.println();
 							System.out.print("Coordinate 1 - Please enter the radius: ");
 							double r1 = Double.parseDouble(bufRead.readLine());
 							System.out.print("Coordinate 1 - Please enter theta (degrees): ");
@@ -81,12 +83,13 @@ public abstract class Coordinate {
 							Coordinate coord2 = new PolarCoordinate(r2, Math.toRadians(t2));
 							
 							while (true) {
+								System.out.println();
 								System.out.println("[convert] Convert to Cartesian coordinates");
 								System.out.println("[distance] Find the distance between the two points");
 								System.out.println("[slope] Find the slope of the line between the points");
 								System.out.println("[equation] Find the equation of the line between the points");
 								System.out.println("[menu] Return to main menu");
-								
+								System.out.println();
 								System.out.print("What would you like to do?");
 								
 								temp = bufRead.readLine();
@@ -94,19 +97,23 @@ public abstract class Coordinate {
 									Coordinate coord1Cartesian = new CartesianCoordinate((PolarCoordinate) coord1);
 									Coordinate coord2Cartesian = new CartesianCoordinate((PolarCoordinate) coord2);
 									
+									System.out.println();
 									System.out.println("The Cartesian coordinate for (" + r1 + ", " + t1 + ") is (" + coord1Cartesian.getValue1() + ", " + coord1Cartesian.getValue2() + ")");
 									System.out.println("The Cartesian coordinate for (" + r2 + ", " + t2 + ") is (" + coord2Cartesian.getValue1() + ", " + coord2Cartesian.getValue2() + ")");
 									//break;
 								}
 								else if (temp.equals("distance")) {
+									System.out.println();
 									System.out.println("The distance between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getDistance(coord2));
 									//break;
 								}
 								else if (temp.equals("slope")) {
+									System.out.println();
 									System.out.println("The slope of the line between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getSlopeOfLine(coord2));
 									//break;
 								}
 								else if (temp.equals("equation")) {
+									System.out.println();
 									System.out.println("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
 									//break;
 								}
@@ -114,6 +121,7 @@ public abstract class Coordinate {
 									break;
 								}
 								else {
+									System.out.println();
 									System.out.println("Please enter one of the options provided.");
 								}
 							}
@@ -121,6 +129,7 @@ public abstract class Coordinate {
 							break;
 						}
 						else if (temp.equals("radians")) {
+							System.out.println();
 							System.out.print("Coordinate 1 - Please enter the radius: ");
 							double r1 = Double.parseDouble(bufRead.readLine());
 							System.out.print("Coordinate 1 - Please enter theta (radians): ");
@@ -137,12 +146,13 @@ public abstract class Coordinate {
 							Coordinate coord2 = new PolarCoordinate(r2, t2);
 							
 							while (true) {
+								System.out.println();
 								System.out.println("[convert] Convert to Cartesian coordinates");
 								System.out.println("[distance] Find the distance between the two points");
 								System.out.println("[slope] Find the slope of the line between the points");
 								System.out.println("[equation] Find the equation of the line between the points");
 								System.out.println("[menu] Return to main menu");
-								
+								System.out.println();
 								System.out.print("What would you like to do?");
 								
 								temp = bufRead.readLine();
@@ -150,19 +160,23 @@ public abstract class Coordinate {
 									Coordinate coord1Cartesian = new CartesianCoordinate((PolarCoordinate) coord1);
 									Coordinate coord2Cartesian = new CartesianCoordinate((PolarCoordinate) coord2);
 									
+									System.out.println();
 									System.out.println("The Cartesian coordinate for (" + r1 + ", " + t1 + ") is (" + coord1Cartesian.getValue1() + ", " + coord1Cartesian.getValue2() + ")");
 									System.out.println("The Cartesian coordinate for (" + r2 + ", " + t2 + ") is (" + coord2Cartesian.getValue1() + ", " + coord2Cartesian.getValue2() + ")");
 									//break;
 								}
 								else if (temp.equals("distance")) {
+									System.out.println();
 									System.out.println("The distance between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getDistance(coord2));
 									//break;
 								}
 								else if (temp.equals("slope")) {
+									System.out.println();
 									System.out.println("The slope of the line between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getSlopeOfLine(coord2));
 									//break;
 								}
 								else if (temp.equals("equation")) {
+									System.out.println();
 									System.out.println("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
 									//break;
 								}
@@ -170,6 +184,7 @@ public abstract class Coordinate {
 									break;
 								}
 								else {
+									System.out.println();
 									System.out.println("Please enter one of the options provided.");
 								}
 							}
@@ -177,12 +192,14 @@ public abstract class Coordinate {
 							break;
 						}
 						else {
+							System.out.println();
 							System.out.println("Please enter one of the options provided.");
 						}
 					}
 					//break;
 				}
 				else if (temp.equals("cartesian")) {
+					System.out.println();
 					System.out.print("Coordinate 1 - Please enter x: ");
 					double x1 = Double.parseDouble(bufRead.readLine());
 					System.out.print("Coordinate 1 - Please enter y: ");
@@ -196,12 +213,13 @@ public abstract class Coordinate {
 					Coordinate coord2 = new CartesianCoordinate(x2, y2);
 					
 					while (true) {
+						System.out.println();
 						System.out.println("[convert] Convert to Cartesian coordinates");
 						System.out.println("[distance] Find the distance between the two points");
 						System.out.println("[slope] Find the slope of the line between the points");
 						System.out.println("[equation] Find the equation of the line between the points");
 						System.out.println("[menu] Return to main menu");
-						
+						System.out.println();
 						System.out.print("What would you like to do?");
 						
 						temp = bufRead.readLine();
@@ -209,19 +227,23 @@ public abstract class Coordinate {
 							Coordinate coord1Polar = new PolarCoordinate((CartesianCoordinate) coord1);
 							Coordinate coord2Polar = new PolarCoordinate((CartesianCoordinate) coord2);
 							
+							System.out.println();
 							System.out.println("The Polar coordinate for (" + x1 + ", " + y1 + ") is (" + coord1Polar.getValue1() + ", " + coord1Polar.getValue2() + ")");
 							System.out.println("The Polar coordinate for (" + x2 + ", " + y2 + ") is (" + coord2Polar.getValue1() + ", " + coord2Polar.getValue2() + ")");
 							//break;
 						}
 						else if (temp.equals("distance")) {
+							System.out.println();
 							System.out.println("The distance between the Cartesian coordinates (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ") is " + coord1.getDistance(coord2));
 							//break;
 						}
 						else if (temp.equals("slope")) {
+							System.out.println();
 							System.out.println("The slope of the line between the Cartesian coordinates (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ") is " + coord1.getSlopeOfLine(coord2));
 							//break;
 						}
 						else if (temp.equals("equation")) {
+							System.out.println();
 							System.out.println("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
 							//break;
 						}
@@ -229,18 +251,18 @@ public abstract class Coordinate {
 							break;
 						}
 						else {
+							System.out.println();
 							System.out.println("Please enter one of the options provided.");
 						}
 					}
 					//break;
 				}
 				else if (temp.equals("file")) {
+					System.out.println();
 					System.out.print("Enter the input filename: ");
 					String inputFilename = bufRead.readLine();
-					System.out.println(inputFilename);
 					System.out.print("Enter the output filename: ");
 					String outputFilename = bufRead.readLine();
-					System.out.println(outputFilename);
 					
 					FileReader fr = new FileReader(inputFilename);
 					BufferedReader br = new BufferedReader(fr);
@@ -253,7 +275,7 @@ public abstract class Coordinate {
 						String[] tokens = line.split(delims);
 						
 						if (tokens.length == 0) {
-							pw.print("blank line");
+							pw.println("blank line");
 							line = br.readLine();
 							continue;
 						}
@@ -282,20 +304,22 @@ public abstract class Coordinate {
 							
 							Coordinate coord1Polar = new PolarCoordinate((CartesianCoordinate) coord1);
 							Coordinate coord2Polar = new PolarCoordinate((CartesianCoordinate) coord2);
-							pw.print("The Polar coordinate for (" + x1 + ", " + y1 + ") is (" + coord1Polar.getValue1() + ", " + coord1Polar.getValue2() + ")");
-							pw.print("The Polar coordinate for (" + x2 + ", " + y2 + ") is (" + coord2Polar.getValue1() + ", " + coord2Polar.getValue2() + ")");
-							
-							pw.print("The distance between the Cartesian coordinates (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ") is " + coord1.getDistance(coord2));
-							
-							pw.print("The slope of the line between the Cartesian coordinates (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ") is " + coord1.getSlopeOfLine(coord2));
-							
-							pw.print("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
-							
+							pw.println();
+							pw.println("The Polar coordinate for (" + x1 + ", " + y1 + ") is (" + coord1Polar.getValue1() + ", " + coord1Polar.getValue2() + ")");
+							pw.println("The Polar coordinate for (" + x2 + ", " + y2 + ") is (" + coord2Polar.getValue1() + ", " + coord2Polar.getValue2() + ")");
+							pw.println();
+							pw.println("The distance between the Cartesian coordinates (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ") is " + coord1.getDistance(coord2));
+							pw.println();
+							pw.println("The slope of the line between the Cartesian coordinates (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ") is " + coord1.getSlopeOfLine(coord2));
+							pw.println();
+							pw.println("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
+							pw.println();
 							pw.println("---");
+							//pw.println();
 						}
 						else if (tokens[0].equals("Polar")) {
 							if (tokens.length < 2) {
-								pw.print("angle type missing");
+								pw.println("angle type missing");
 								line = br.readLine();
 								continue;
 							}
@@ -325,16 +349,18 @@ public abstract class Coordinate {
 								
 								Coordinate coord1Cartesian = new CartesianCoordinate((PolarCoordinate) coord1);
 								Coordinate coord2Cartesian = new CartesianCoordinate((PolarCoordinate) coord2);
-								pw.print("The Cartesian coordinate for (" + r1 + ", " + t1 + ") is (" + coord1Cartesian.getValue1() + ", " + coord1Cartesian.getValue2() + ")");
-								pw.print("The Cartesian coordinate for (" + r2 + ", " + t2 + ") is (" + coord2Cartesian.getValue1() + ", " + coord2Cartesian.getValue2() + ")");
-								
-								pw.print("The distance between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getDistance(coord2));
-								
-								pw.print("The slope of the line between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getSlopeOfLine(coord2));
-								
-								pw.print("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
-								
+								pw.println();
+								pw.println("The Cartesian coordinate for (" + r1 + ", " + t1 + ") is (" + coord1Cartesian.getValue1() + ", " + coord1Cartesian.getValue2() + ")");
+								pw.println("The Cartesian coordinate for (" + r2 + ", " + t2 + ") is (" + coord2Cartesian.getValue1() + ", " + coord2Cartesian.getValue2() + ")");
+								pw.println();
+								pw.println("The distance between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getDistance(coord2));
+								pw.println();
+								pw.println("The slope of the line between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getSlopeOfLine(coord2));
+								pw.println();
+								pw.println("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
+								pw.println();
 								pw.println("---");
+								//pw.println();
 							}
 							
 							else if (tokens[1].equals("Radians")) {
@@ -362,16 +388,18 @@ public abstract class Coordinate {
 								
 								Coordinate coord1Cartesian = new CartesianCoordinate((PolarCoordinate) coord1);
 								Coordinate coord2Cartesian = new CartesianCoordinate((PolarCoordinate) coord2);
-								pw.print("The Cartesian coordinate for (" + r1 + ", " + t1 + ") is (" + coord1Cartesian.getValue1() + ", " + coord1Cartesian.getValue2() + ")");
-								pw.print("The Cartesian coordinate for (" + r2 + ", " + t2 + ") is (" + coord2Cartesian.getValue1() + ", " + coord2Cartesian.getValue2() + ")");
-								
-								pw.print("The distance between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getDistance(coord2));
-								
-								pw.print("The slope of the line between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getSlopeOfLine(coord2));
-								
-								pw.print("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
-								
+								pw.println();
+								pw.println("The Cartesian coordinate for (" + r1 + ", " + t1 + ") is (" + coord1Cartesian.getValue1() + ", " + coord1Cartesian.getValue2() + ")");
+								pw.println("The Cartesian coordinate for (" + r2 + ", " + t2 + ") is (" + coord2Cartesian.getValue1() + ", " + coord2Cartesian.getValue2() + ")");
+								pw.println();
+								pw.println("The distance between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getDistance(coord2));
+								pw.println();
+								pw.println("The slope of the line between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getSlopeOfLine(coord2));
+								pw.println();
+								pw.println("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
+								pw.println();
 								pw.println("---");
+								//pw.println();
 							}
 							
 							else {
@@ -382,7 +410,7 @@ public abstract class Coordinate {
 							
 						}
 						else {
-							pw.print("coordinate type invalid");
+							pw.println("coordinate type invalid");
 						}
 						
 						line = br.readLine();
@@ -394,14 +422,17 @@ public abstract class Coordinate {
 					br.close();
 					fr.close();
 					
+					System.out.println();
 					System.out.println("File was parsed and output generated.");
 					//break;
 				}
 				else if (temp.equals("exit")) {
+					System.out.println();
 					System.out.println("Thank you for using my program!");
 					break;
 				}
 				else {
+					System.out.println();
 					System.out.println("Please enter one of the options provided.");
 				}
 			}
