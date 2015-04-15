@@ -29,15 +29,171 @@ public abstract class Coordinate {
 	
 	public abstract double getInterceptOfLine(Coordinate c);
 	
-//	public void generateFine(String inputFilename, String outputFilename) throws Exception {
-//		try {
-//			
-//		} catch (FileNotFoundException fnfe) {
-//			throw new Exception(fnfe.getMessage());
-//		} catch (IOException ioe) {
-//			throw new Exception(ioe.getMessage());
-//		}
-//	}
+	public static void generateFile(String inputFilename, String outputFilename) throws Exception {
+		try {
+			FileReader fr = new FileReader(inputFilename);
+			BufferedReader br = new BufferedReader(fr);
+			FileWriter fw = new FileWriter(outputFilename);
+			PrintWriter pw = new PrintWriter(fw);
+			
+			String line = br.readLine();
+			while (line != null) {
+				String delims = "[, ]+";
+				String[] tokens = line.split(delims);
+				
+				if (tokens.length == 0) {
+					pw.println("blank line");
+					line = br.readLine();
+					continue;
+				}
+				else if (tokens[0].equals("Polar")) {
+					if (tokens.length < 2) {
+						pw.println("angle type missing");
+						line = br.readLine();
+						continue;
+					}
+					
+					if (tokens[1].equals("Degrees")) {
+						line = br.readLine();
+						tokens = line.split(delims);
+						if (tokens.length < 2) {
+							pw.println("missing value(s)");
+							line = br.readLine();
+							continue;
+						}
+						double r1 = Double.parseDouble(tokens[0]);
+						double t1 = Double.parseDouble(tokens[1]);
+						Coordinate coord1 = new PolarCoordinate(r1, Math.toRadians(t1));
+						
+						line = br.readLine();
+						tokens = line.split(delims);
+						if (tokens.length < 2) {
+							pw.println("missing value(s)");
+							line = br.readLine();
+							continue;
+						}
+						double r2 = Double.parseDouble(tokens[0]);
+						double t2 = Double.parseDouble(tokens[1]);
+						Coordinate coord2 = new PolarCoordinate(r2, Math.toRadians(t2));
+						
+						Coordinate coord1Cartesian = new CartesianCoordinate((PolarCoordinate) coord1);
+						Coordinate coord2Cartesian = new CartesianCoordinate((PolarCoordinate) coord2);
+						pw.println();
+						pw.println("The Cartesian coordinate for (" + r1 + ", " + t1 + ") is (" + coord1Cartesian.getValue1() + ", " + coord1Cartesian.getValue2() + ")");
+						pw.println("The Cartesian coordinate for (" + r2 + ", " + t2 + ") is (" + coord2Cartesian.getValue1() + ", " + coord2Cartesian.getValue2() + ")");
+						pw.println();
+						pw.println("The distance between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getDistance(coord2));
+						pw.println();
+						pw.println("The slope of the line between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getSlopeOfLine(coord2));
+						pw.println();
+						pw.println("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
+						pw.println();
+						pw.println("---");
+						//pw.println();
+					}
+					
+					else if (tokens[1].equals("Radians")) {
+						line = br.readLine();
+						tokens = line.split(delims);
+						if (tokens.length < 2) {
+							pw.println("missing value(s)");
+							line = br.readLine();
+							continue;
+						}
+						double r1 = Double.parseDouble(tokens[0]);
+						double t1 = Double.parseDouble(tokens[1]);
+						Coordinate coord1 = new PolarCoordinate(r1, t1);
+						
+						line = br.readLine();
+						tokens = line.split(delims);
+						if (tokens.length < 2) {
+							pw.println("missing value(s)");
+							line = br.readLine();
+							continue;
+						}
+						double r2 = Double.parseDouble(tokens[0]);
+						double t2 = Double.parseDouble(tokens[1]);
+						Coordinate coord2 = new PolarCoordinate(r2, t2);
+						
+						Coordinate coord1Cartesian = new CartesianCoordinate((PolarCoordinate) coord1);
+						Coordinate coord2Cartesian = new CartesianCoordinate((PolarCoordinate) coord2);
+						pw.println();
+						pw.println("The Cartesian coordinate for (" + r1 + ", " + t1 + ") is (" + coord1Cartesian.getValue1() + ", " + coord1Cartesian.getValue2() + ")");
+						pw.println("The Cartesian coordinate for (" + r2 + ", " + t2 + ") is (" + coord2Cartesian.getValue1() + ", " + coord2Cartesian.getValue2() + ")");
+						pw.println();
+						pw.println("The distance between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getDistance(coord2));
+						pw.println();
+						pw.println("The slope of the line between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getSlopeOfLine(coord2));
+						pw.println();
+						pw.println("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
+						pw.println();
+						pw.println("---");
+						//pw.println();
+					}
+					else if (tokens[0].equals("Cartesian")) {
+						line = br.readLine();
+						tokens = line.split(delims);
+						if (tokens.length < 2) {
+							pw.println("missing value(s)");
+							line = br.readLine();
+							continue;
+						}
+						double x1 = Double.parseDouble(tokens[0]);
+						double y1 = Double.parseDouble(tokens[1]);
+						Coordinate coord1 = new CartesianCoordinate(x1, y1);
+						
+						line = br.readLine();
+						tokens = line.split(delims);
+						if (tokens.length < 2) {
+							pw.println("missing value(s)");
+							line = br.readLine();
+							continue;
+						}
+						double x2 = Double.parseDouble(tokens[0]);
+						double y2 = Double.parseDouble(tokens[1]);
+						Coordinate coord2 = new CartesianCoordinate(x2, y2);
+						
+						Coordinate coord1Polar = new PolarCoordinate((CartesianCoordinate) coord1);
+						Coordinate coord2Polar = new PolarCoordinate((CartesianCoordinate) coord2);
+						pw.println();
+						pw.println("The Polar coordinate for (" + x1 + ", " + y1 + ") is (" + coord1Polar.getValue1() + ", " + Math.toDegrees(coord1Polar.getValue2()) + ")");
+						pw.println("The Polar coordinate for (" + x2 + ", " + y2 + ") is (" + coord2Polar.getValue1() + ", " + Math.toDegrees(coord2Polar.getValue2()) + ")");
+						pw.println();
+						pw.println("The distance between the Cartesian coordinates (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ") is " + coord1.getDistance(coord2));
+						pw.println();
+						pw.println("The slope of the line between the Cartesian coordinates (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ") is " + coord1.getSlopeOfLine(coord2));
+						pw.println();
+						pw.println("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
+						pw.println();
+						pw.println("---");
+						//pw.println();
+					}
+					
+					else {
+						pw.println("angle type invalid");
+						line = br.readLine();
+						continue;
+					}
+					
+				}
+				else {
+					pw.println("coordinate type invalid");
+				}
+				
+				line = br.readLine();
+			}
+			
+			pw.flush();
+			pw.close();
+			fw.close();
+			br.close();
+			fr.close();
+		} catch (FileNotFoundException fnfe) {
+			throw new Exception(fnfe.getMessage());
+		} catch (IOException ioe) {
+			throw new Exception(ioe.getMessage());
+		}
+	}
 	
 	public static void main(String[] args) {
 		InputStreamReader istream = new InputStreamReader(System.in);
@@ -228,8 +384,8 @@ public abstract class Coordinate {
 							Coordinate coord2Polar = new PolarCoordinate((CartesianCoordinate) coord2);
 							
 							System.out.println();
-							System.out.println("The Polar coordinate for (" + x1 + ", " + y1 + ") is (" + coord1Polar.getValue1() + ", " + coord1Polar.getValue2() + ")");
-							System.out.println("The Polar coordinate for (" + x2 + ", " + y2 + ") is (" + coord2Polar.getValue1() + ", " + coord2Polar.getValue2() + ")");
+							System.out.println("The Polar coordinate for (" + x1 + ", " + y1 + ") is (" + coord1Polar.getValue1() + ", " + Math.toDegrees(coord1Polar.getValue2()) + ")");
+							System.out.println("The Polar coordinate for (" + x2 + ", " + y2 + ") is (" + coord2Polar.getValue1() + ", " + Math.toDegrees(coord2Polar.getValue2()) + ")");
 							//break;
 						}
 						else if (temp.equals("distance")) {
@@ -264,163 +420,7 @@ public abstract class Coordinate {
 					System.out.print("Enter the output filename: ");
 					String outputFilename = bufRead.readLine();
 					
-					FileReader fr = new FileReader(inputFilename);
-					BufferedReader br = new BufferedReader(fr);
-					FileWriter fw = new FileWriter(outputFilename);
-					PrintWriter pw = new PrintWriter(fw);
-					
-					String line = br.readLine();
-					while (line != null) {
-						String delims = "[, ]+";
-						String[] tokens = line.split(delims);
-						
-						if (tokens.length == 0) {
-							pw.println("blank line");
-							line = br.readLine();
-							continue;
-						}
-						else if (tokens[0].equals("Cartesian")) {
-							line = br.readLine();
-							tokens = line.split(delims);
-							if (tokens.length < 2) {
-								pw.println("missing value(s)");
-								line = br.readLine();
-								continue;
-							}
-							double x1 = Double.parseDouble(tokens[0]);
-							double y1 = Double.parseDouble(tokens[1]);
-							Coordinate coord1 = new CartesianCoordinate(x1, y1);
-							
-							line = br.readLine();
-							tokens = line.split(delims);
-							if (tokens.length < 2) {
-								pw.println("missing value(s)");
-								line = br.readLine();
-								continue;
-							}
-							double x2 = Double.parseDouble(tokens[0]);
-							double y2 = Double.parseDouble(tokens[1]);
-							Coordinate coord2 = new CartesianCoordinate(x2, y2);
-							
-							Coordinate coord1Polar = new PolarCoordinate((CartesianCoordinate) coord1);
-							Coordinate coord2Polar = new PolarCoordinate((CartesianCoordinate) coord2);
-							pw.println();
-							pw.println("The Polar coordinate for (" + x1 + ", " + y1 + ") is (" + coord1Polar.getValue1() + ", " + coord1Polar.getValue2() + ")");
-							pw.println("The Polar coordinate for (" + x2 + ", " + y2 + ") is (" + coord2Polar.getValue1() + ", " + coord2Polar.getValue2() + ")");
-							pw.println();
-							pw.println("The distance between the Cartesian coordinates (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ") is " + coord1.getDistance(coord2));
-							pw.println();
-							pw.println("The slope of the line between the Cartesian coordinates (" + x1 + ", " + y1 + ") and (" + x2 + ", " + y2 + ") is " + coord1.getSlopeOfLine(coord2));
-							pw.println();
-							pw.println("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
-							pw.println();
-							pw.println("---");
-							//pw.println();
-						}
-						else if (tokens[0].equals("Polar")) {
-							if (tokens.length < 2) {
-								pw.println("angle type missing");
-								line = br.readLine();
-								continue;
-							}
-							
-							if (tokens[1].equals("Degrees")) {
-								line = br.readLine();
-								tokens = line.split(delims);
-								if (tokens.length < 2) {
-									pw.println("missing value(s)");
-									line = br.readLine();
-									continue;
-								}
-								double r1 = Double.parseDouble(tokens[0]);
-								double t1 = Double.parseDouble(tokens[1]);
-								Coordinate coord1 = new PolarCoordinate(r1, Math.toRadians(t1));
-								
-								line = br.readLine();
-								tokens = line.split(delims);
-								if (tokens.length < 2) {
-									pw.println("missing value(s)");
-									line = br.readLine();
-									continue;
-								}
-								double r2 = Double.parseDouble(tokens[0]);
-								double t2 = Double.parseDouble(tokens[1]);
-								Coordinate coord2 = new PolarCoordinate(r2, Math.toRadians(t2));
-								
-								Coordinate coord1Cartesian = new CartesianCoordinate((PolarCoordinate) coord1);
-								Coordinate coord2Cartesian = new CartesianCoordinate((PolarCoordinate) coord2);
-								pw.println();
-								pw.println("The Cartesian coordinate for (" + r1 + ", " + t1 + ") is (" + coord1Cartesian.getValue1() + ", " + coord1Cartesian.getValue2() + ")");
-								pw.println("The Cartesian coordinate for (" + r2 + ", " + t2 + ") is (" + coord2Cartesian.getValue1() + ", " + coord2Cartesian.getValue2() + ")");
-								pw.println();
-								pw.println("The distance between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getDistance(coord2));
-								pw.println();
-								pw.println("The slope of the line between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getSlopeOfLine(coord2));
-								pw.println();
-								pw.println("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
-								pw.println();
-								pw.println("---");
-								//pw.println();
-							}
-							
-							else if (tokens[1].equals("Radians")) {
-								line = br.readLine();
-								tokens = line.split(delims);
-								if (tokens.length < 2) {
-									pw.println("missing value(s)");
-									line = br.readLine();
-									continue;
-								}
-								double r1 = Double.parseDouble(tokens[0]);
-								double t1 = Double.parseDouble(tokens[1]);
-								Coordinate coord1 = new PolarCoordinate(r1, t1);
-								
-								line = br.readLine();
-								tokens = line.split(delims);
-								if (tokens.length < 2) {
-									pw.println("missing value(s)");
-									line = br.readLine();
-									continue;
-								}
-								double r2 = Double.parseDouble(tokens[0]);
-								double t2 = Double.parseDouble(tokens[1]);
-								Coordinate coord2 = new PolarCoordinate(r2, t2);
-								
-								Coordinate coord1Cartesian = new CartesianCoordinate((PolarCoordinate) coord1);
-								Coordinate coord2Cartesian = new CartesianCoordinate((PolarCoordinate) coord2);
-								pw.println();
-								pw.println("The Cartesian coordinate for (" + r1 + ", " + t1 + ") is (" + coord1Cartesian.getValue1() + ", " + coord1Cartesian.getValue2() + ")");
-								pw.println("The Cartesian coordinate for (" + r2 + ", " + t2 + ") is (" + coord2Cartesian.getValue1() + ", " + coord2Cartesian.getValue2() + ")");
-								pw.println();
-								pw.println("The distance between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getDistance(coord2));
-								pw.println();
-								pw.println("The slope of the line between the Polar coordinates (" + r1 + ", " + t1 + ") and (" + r2 + ", " + t2 + ") is " + coord1.getSlopeOfLine(coord2));
-								pw.println();
-								pw.println("The equation of the line between the points is y = " + coord1.getSlopeOfLine(coord2) + "x + " +coord1.getInterceptOfLine(coord2));
-								pw.println();
-								pw.println("---");
-								//pw.println();
-							}
-							
-							else {
-								pw.println("angle type invalid");
-								line = br.readLine();
-								continue;
-							}
-							
-						}
-						else {
-							pw.println("coordinate type invalid");
-						}
-						
-						line = br.readLine();
-					}
-					
-					pw.flush();
-					pw.close();
-					fw.close();
-					br.close();
-					fr.close();
+					generateFile(inputFilename, outputFilename);
 					
 					System.out.println();
 					System.out.println("File was parsed and output generated.");
