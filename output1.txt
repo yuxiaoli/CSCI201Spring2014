@@ -1,0 +1,89 @@
+The Cartesian coordinate for (3.5, 60.0) is (1.7500000000000004, 3.031088913245535)
+The Cartesian coordinate for (5.0, 90.0) is (3.061616997868383E-16, 5.0)
+
+The distance between the Polar coordinates (3.5, 60.0) and (5.0, 90.0) is 2.634219214026169
+
+The slope of the line between the Polar coordinates (3.5, 60.0) and (5.0, 90.0) is -1.1250920495739798
+
+The equation of the line between the points is y = -1.1250920495739798x + 4.999999999999999
+
+---
+
+The Polar coordinate for (2.0, 3.0) is (3.605551275463989, 56.309932474020215)
+The Polar coordinate for (-5.0, -8.0) is (9.433981132056603, -122.00538320808353)
+
+The distance between the Cartesian coordinates (2.0, 3.0) and (-5.0, -8.0) is 13.038404810405298
+
+The slope of the line between the Cartesian coordinates (2.0, 3.0) and (-5.0, -8.0) is 1.5714285714285714
+
+The equation of the line between the points is y = 1.5714285714285714x + -0.14285714285714285
+
+---
+
+coordinate type invalid
+The Cartesian coordinate for (3.5, 60.0) is (1.7500000000000004, 3.031088913245535)
+The Cartesian coordinate for (5.0, 90.0) is (3.061616997868383E-16, 5.0)
+
+The distance between the Polar coordinates (3.5, 60.0) and (5.0, 90.0) is 2.634219214026169
+
+The slope of the line between the Polar coordinates (3.5, 60.0) and (5.0, 90.0) is -1.1250920495739798
+
+The equation of the line between the points is y = -1.1250920495739798x + 4.999999999999999
+
+---
+
+The Polar coordinate for (2.0, 3.0) is (3.605551275463989, 56.309932474020215)
+The Polar coordinate for (-5.0, -8.0) is (9.433981132056603, -122.00538320808353)
+
+The distance between the Cartesian coordinates (2.0, 3.0) and (-5.0, -8.0) is 13.038404810405298
+
+The slope of the line between the Cartesian coordinates (2.0, 3.0) and (-5.0, -8.0) is 1.5714285714285714
+
+The equation of the line between the points is y = 1.5714285714285714x + -0.14285714285714285
+
+---
+
+The Cartesian coordinate for (3.5, 60.0) is (1.7500000000000004, 3.031088913245535)
+The Cartesian coordinate for (5.0, 90.0) is (3.061616997868383E-16, 5.0)
+
+The distance between the Polar coordinates (3.5, 60.0) and (5.0, 90.0) is 2.634219214026169
+
+The slope of the line between the Polar coordinates (3.5, 60.0) and (5.0, 90.0) is -1.1250920495739798
+
+The equation of the line between the points is y = -1.1250920495739798x + 4.999999999999999
+
+---
+
+The Cartesian coordinate for (3.5, 60.0) is (1.7500000000000004, 3.031088913245535)
+The Cartesian coordinate for (5.0, 90.0) is (3.061616997868383E-16, 5.0)
+
+The distance between the Polar coordinates (3.5, 60.0) and (5.0, 90.0) is 2.634219214026169
+
+The slope of the line between the Polar coordinates (3.5, 60.0) and (5.0, 90.0) is -1.1250920495739798
+
+The equation of the line between the points is y = -1.1250920495739798x + 4.999999999999999
+
+---
+
+The Polar coordinate for (2.0, 3.0) is (3.605551275463989, 56.309932474020215)
+The Polar coordinate for (-5.0, -8.0) is (9.433981132056603, -122.00538320808353)
+
+The distance between the Cartesian coordinates (2.0, 3.0) and (-5.0, -8.0) is 13.038404810405298
+
+The slope of the line between the Cartesian coordinates (2.0, 3.0) and (-5.0, -8.0) is 1.5714285714285714
+
+The equation of the line between the points is y = 1.5714285714285714x + -0.14285714285714285
+
+---
+
+The Polar coordinate for (2.0, 3.0) is (3.605551275463989, 56.309932474020215)
+The Polar coordinate for (-5.0, -8.0) is (9.433981132056603, -122.00538320808353)
+
+The distance between the Cartesian coordinates (2.0, 3.0) and (-5.0, -8.0) is 13.038404810405298
+
+The slope of the line between the Cartesian coordinates (2.0, 3.0) and (-5.0, -8.0) is 1.5714285714285714
+
+The equation of the line between the points is y = 1.5714285714285714x + -0.14285714285714285
+
+---
+
