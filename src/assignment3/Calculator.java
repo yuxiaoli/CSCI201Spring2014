@@ -36,7 +36,7 @@ public class Calculator extends JFrame {
 		gbc.gridy = 0;
 		southPanel.add(rightParenthesisButton, gbc);
 		
-		JButton deleteButton = new JButton("â†�");
+		JButton deleteButton = new JButton("del");
 		gbc.gridx = 4;
 		gbc.gridy = 0;
 		southPanel.add(deleteButton, gbc);
@@ -72,40 +72,40 @@ public class Calculator extends JFrame {
 		gbc.gridy = 1;
 		southPanel.add(sinButton, gbc);
 		
-		JButton squareButton = new JButton("x");
+		JButton squareButton = new JButton("x^2");
 		gbc.gridx = 2;
 		gbc.gridy = 1;
 		southPanel.add(squareButton, gbc);
 		
-		JButton rightParenthesisButton = new JButton(")");
+		JButton factorialButton = new JButton("n!");
 		gbc.gridx = 3;
-		gbc.gridy = 0;
-		southPanel.add(rightParenthesisButton, gbc);
+		gbc.gridy = 1;
+		southPanel.add(factorialButton, gbc);
 		
-		JButton deleteButton = new JButton("â†�");
+		JButton numSevenButton = new JButton("7");
 		gbc.gridx = 4;
-		gbc.gridy = 0;
-		southPanel.add(deleteButton, gbc);
+		gbc.gridy = 1;
+		southPanel.add(numSevenButton, gbc);
 		
-		JButton clearAllButton = new JButton("CE");
+		JButton numEightButton = new JButton("8");
 		gbc.gridx = 5;
-		gbc.gridy = 0;
-		southPanel.add(clearAllButton, gbc);
+		gbc.gridy = 1;
+		southPanel.add(numEightButton, gbc);
 		
-		JButton clearButton = new JButton("C");
+		JButton numNineButton = new JButton("9");
 		gbc.gridx = 6;
-		gbc.gridy = 0;
-		southPanel.add(clearButton, gbc);
+		gbc.gridy = 1;
+		southPanel.add(numNineButton, gbc);
 		
-		JButton negateButton = new JButton("±");
+		JButton devideButton = new JButton("/");
 		gbc.gridx = 7;
-		gbc.gridy = 0;
-		southPanel.add(negateButton, gbc);
+		gbc.gridy = 1;
+		southPanel.add(devideButton, gbc);
 		
-		JButton squareRootButton = new JButton("√");
+		JButton percentageButton = new JButton("%");
 		gbc.gridx = 8;
-		gbc.gridy = 0;
-		southPanel.add(squareRootButton, gbc);
+		gbc.gridy = 1;
+		southPanel.add(percentageButton, gbc);
 		
 		
 		
