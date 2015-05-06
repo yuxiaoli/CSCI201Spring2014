@@ -7,10 +7,24 @@ import java.awt.GridBagLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
 public class Calculator extends JFrame {
 	public Calculator() {
 		super("Calculator");
+		
+		JTextField inputTF = new JTextField();
+		
+		JPanel centerPanel = new JPanel();
+		// default layout of a JPanel is FlowLayout
+		
+		JRadioButton degreesRB = new JRadioButton("Degrees");
+		centerPanel.add(degreesRB);
+		
+		JRadioButton radiansRB = new JRadioButton("Radians");
+		centerPanel.add(radiansRB);
+		
 		
 		JPanel southPanel = new JPanel();
 		southPanel.setLayout(new GridBagLayout());
@@ -108,7 +122,8 @@ public class Calculator extends JFrame {
 		southPanel.add(percentageButton, gbc);
 		
 		
-		
+		add(inputTF, BorderLayout.NORTH);
+		add(centerPanel, BorderLayout.CENTER);
 		add(southPanel, BorderLayout.SOUTH);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
