@@ -4,11 +4,13 @@ import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 
 public class Calculator extends JFrame {
 	public Calculator() {
@@ -20,10 +22,18 @@ public class Calculator extends JFrame {
 		// default layout of a JPanel is FlowLayout
 		
 		JRadioButton degreesRB = new JRadioButton("Degrees");
-		centerPanel.add(degreesRB);
+		degreesRB.setSelected(true);
 		
 		JRadioButton radiansRB = new JRadioButton("Radians");
+		
+		ButtonGroup group = new ButtonGroup();
+		group.add(degreesRB);
+		group.add(radiansRB);
+		
+		centerPanel.add(degreesRB);
 		centerPanel.add(radiansRB);
+		Border b = null;
+		centerPanel.setBorder(b);
 		
 		
 		JPanel southPanel = new JPanel();
